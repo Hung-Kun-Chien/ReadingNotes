@@ -4,7 +4,13 @@
         "Drucker",
         "Hesselberg",
         "Jorden",
+        "Luvisotto",
+        "PLCs",
+        "PROFINET",
+        "SERCOS",
+        "VLAN",
         "VUCA",
-        "realtime"
+        "realtime",
+        "subcarrier"
     ]
 }
