@@ -1,4 +1,9 @@
-![](2019-08-22-06-44-51.png)# IEEE 802.11be — Extremely High Throughput: The Next Generation of Wi-Fi Technology Beyond 802.11ax
+# IEEE 802.11be — Extremely High Throughput: The Next Generation of Wi-Fi Technology Beyond 802.11ax
+
+https://arxiv.org/pdf/1902.04320
+
+###### tags: `Paper Study` `Wi-Fi`
+
 
 ## Key features 
 
