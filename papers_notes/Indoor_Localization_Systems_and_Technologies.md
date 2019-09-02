@@ -104,12 +104,6 @@ point.
 - Channel impulse response(CIR) and channel frequency response(CFR) provides higher guarantees of accuracy than CSI.
 - many IEEE 802.11 NICs provides subcarrier level CSI from OFDM system.
 - (no detail techniques description for CSI-based measurement......)
-- 還好我懂一些。
-  - Sync tx/rx timestamp.
-  - Calculate time of arrival:
-    - Log coarse time of arrival of CSI received packet.
-    - Estimate accurate cir using CFR through subsapce method to find fine time estimate by first arrival path.
-  - Sender log time of departure, receiver feedback time of arrival. calculate propagation time and map to distance.
 
 ### Fingerprinting/Scene Analysis
 
@@ -146,9 +140,40 @@ point.
 
 ### Time of Flight (ToF)
 
+- Time of Arrival
+- Distance = ToF $\times$ C(=3e8 m/sec)
+  - $t_{t,i}$ : transmitted timestamp
+  - $t_{r,j}$ : arrival timestamp
+  - $d_{i,j} = (t_{r,j} - t_{t,i})\times c$
+- TOF based UE(user equipment) location
+- Estimation accuracy depends on the channel bandwidth and sampling rate.
+- Frequency domain super resolution technique is used to estimate ToF using CFR(CSI)
+- Cannot eliminate location error or estimation bias when the LOS path is blocked.(not available)
+<img src="https://imgur.com/elXiqhv.png" style="width: 600px" align="center"/> 
+- Requires the synchronization between TXs and RX
+
 ### Time Difference of Arrival (TDoA)
 
+- (TDoA) exploits the difference
+in signals propagation times from different transmitters, measured at the receiver
+
+- Hyperbola equations
+$\begin{aligned} L _ { D ( i , j ) } & = \sqrt { \left( X _ { i } - x \right) ^ { 2 } + \left( Y _ { i } - y \right) ^ { 2 } + \left( Z _ { i } - z \right) ^ { 2 } } \\ & - \sqrt { \left( X _ { j } - x \right) ^ { 2 } + \left( Y _ { j } - y \right) ^ { 2 } + \left( Z _ { j } - z \right) ^ { 2 } } \end{aligned}$ 
+- At least 3 RNs
+
+<img src="https://imgur.com/rikx5KB.png" style="width: 600px" align="center"/>
+
+- Strict Synchronization is required,but only need synchronization between TXs
+
 ### Return Time of Flight (RToF)
+
+- Measures the round-trip signal propagation time to estimate the distance between Tx and Rx
+- Benefit: Relative moderate time sync requirement.
+- Affect the same accuracy factor twice as ToF (i.e. nonLoS, sampling rate, bandwidth...)
+- Response delay highly depends on RX electronics and protocol overhead.
+- Distance: $D _ { i j } = \frac { \left( t _ { 4 } - t _ { 1 } \right) - \left( t _ { 3 } - t _ { 2 } \right) } { 2 } \times v$
+  - $t_2(@A) = t_1(@B) + t_p + \Delta_t$, $t_4(@B) = t_3(@A)+t_p - \Delta_t$
+  - $\Delta_t$ is clock offset between A and B
 
 ### Phase of Arrival (PoA)
 
