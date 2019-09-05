@@ -272,6 +272,52 @@ $\begin{aligned} L _ { D ( i , j ) } & = \sqrt { \left( X _ { i } - x \right) ^ 
 
 ## LOCALIZATION AND INTERNET OF THINGS
 
+### Primer on Internet of Things
+
+- IOT: connecting different entities or **"things"** to provide **ubiquitous** connectivity and enhanced services
+  - one of the six “disruptive civil technologies” by the US NIC (2008)
+    - Biogerontechnology
+    - Energy Storage Materials
+    - Biofuels(生物燃料) and Bio Based Chemicals
+    - Clean Coal Technologies
+    - Service Robotics
+    - **The Internet of Things**
+- Improve the performance of different systems: health, marketing, automation, monitoring, parking, transportation, retail, ﬂeet management, security, disaster
+management, energy efﬁciency, and smart architecture.
+
+- Three components of IoT
+  - Data Collection(Sensing): 
+    - temperature, seismic activities, user heart beat, speed of the car,..
+    - fundamental pillars(支柱) of the IoT
+    - processing power constrained: sense and transmission with in minimal process.
+  - Data Communication
+  - Data Processing: 
+    - requires extensive processing such as data aggregation, compression, feature extraction
+    - provide the user with valuable and related data
+- Cooperation of the IoT network is fundamental
+  - reliable and safe operation
+  - highly heterogeneous network: leverage different communication and connectivity protocols
+  - signiﬁcant research challenges: amalgamation(融合) of different standards and technologies requires careful deliberation and planning
+- Challenges related the indoor localization in IoT ecosystems
+  - Privacy and Security
+    - Open and challenging problem of UE: appropriate methodology for data collection, processing, encryption and storage to preserve and guarantee the **user privacy** and **anonymity**(匿名)
+    - industry devices: potentially conﬁdential information.
+      - Random change of the MAC addresses or IDs of the IoT devices, known only by the authorized network, together with appropriate encryption
+    - Safety and security
+    - Benefit: tracking device position and authentication of new IoT devices
+  - Heterogeneity and diversity
+    - different communication air-interface /standards in IoT networks in the IoT ecosystems, challenging in design ubiquitous localization solution.
+    - different device providers makes the modification of the location framework for each device hard from service provider aspect.
+    - device sleep for power-saving makes complicated to how frequently the location of these device can be estimated and updated. 
+    - Low SNR caused by low-power communication make location information inaccurate.
+    - Wake-up patterns are variety from device to device.
+  - Network management and scalability
+    - Interference management is one of the main challenges in IoT networks
+    - 
+  - Limited hardware Resources
+
+<img src="https://imgur.com/5QEnMzq.png" style="width: 600px" align="center"/>
+
 ## EVALUATION FRAMEWORK
 
 ## LOCALIZATION SYSTEMS
