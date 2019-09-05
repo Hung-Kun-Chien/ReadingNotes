@@ -71,6 +71,22 @@
 
 ## LOCALIZATION TECHNIQUES
 
+
+### Summary 
+
+| Technique      | Advantages                                                                            | Disadvantages                                                                                                                                          |
+| -------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| RSSI           | Easy to implement, cost efﬁcient, can be used with a number of technologies           | multipath fading and environmental noise, lower localization accuracy, require ﬁngerprinting                                                           |
+| CSI            | robust to multipath and indoor noise                                                  | not easily available on off-the-shelf NICs                                                                                                             |
+| AoA            | high localization accuracy, not require ﬁngerprinting                                 | require directional antennas and complex hardware, requires comparatively complex algorithms, performance deteriorates with increase in tx-rx distance |
+| ToF            | high localization accuracy, not require ﬁngerprinting                                 | Requires tx-rx time synchronization, require time stamps and multiple antennas at the transmitter and receiver. Line of Sight is mandatory             |
+| TDoA           | not require ﬁngerprinting, not require clock synchronization among the device and RNs | Requires clock synchronization among the RNs, require time stamps, requires larger bandwidth                                                           |
+| RToF           | not require ﬁngerprinting, high localization accuracy                                 | Requires clock synchronization, processing delay can affect performance in short ranger measurements                                                   |
+| PoA            | used in conjunction with RSS, ToA, TDoA to improve the overall localization accuracy  | Degraded performance in the absence of line of sight                                                                                                   |
+| Fingerprinting | Fairly easy to use                                                                    | New ﬁngerprints are required even when there is a minor variation in the space                                                                         |
+
+
+
 ### Received Signal Strength Indicator (RSSI)
 
 - Received signal strength (RSS): usually in dBm or mW
@@ -177,7 +193,82 @@ $\begin{aligned} L _ { D ( i , j ) } & = \sqrt { \left( X _ { i } - x \right) ^ 
 
 ### Phase of Arrival (PoA)
 
+- use the phase or phase difference of carrier signal to estimate the distance
+- assumption: transmitted signals **sinusoidal**, **same frequency** and **zero phase** offset
+- phase different between antenna can be used to obtain the user location. 
+<img src="https://imgur.com/fGoTHKd.png" style="width: 600px" align="center"/>
+
+
+
 ## TECHNOLOGIES FOR LOCALIZATION
+
+### Summary 
+
+<img src="https://imgur.com/PqhzT6b.png" style="width: 600px" align="center"/>
+
+### WiFi
+
+- RSS, CSI, ToF and AoA techniques (and hybrid methods) can be used to provide WiFi based localization services
+
+### Bluetooth
+
+- Bluetooth Low Energy (BLE)
+  - provide data rate of 24Mbps and coverage range of 70-100 meters with higher energy efﬁciency
+- can use RSSI, AoA, and ToF
+  - most relayed on RSS based approach for low complexity but limits accuracy
+- BLE based protocols: iBeacons (Apple) and Eddystone (Google)
+  - primarily for context aware proximity based services.
+- iBeacons: @2013 WWDC 
+  - proximity detection and proximity based services
+  - transmit beacon or signals in periodic interval
+  - 16 byte UUID(Universally Unique Identiﬁer) and optional 2 byte major/minor values.
+  - devices listen beacon picks, approximate range between iBeacon and device by the RSSI.
+  - classified into immediately(<1m), near (<3m),far (>3m), unknown.
+  - RSSI message received per 50ms, averaging RSSI and process latency will be challenge of realtime application.
+<img src="https://imgur.com/07q5obI.png" style="width: 600px" align="center"/> 
+
+
+### RFID
+
+- reader and tags
+- tags emit signal, reader received according to predefined RF and protocol.
+- Active RFID
+  - operates at UHF band and microwave frequency
+  - Tags connect power supply, periodic transmit their ID, can communicate with ~x00 meters,
+  - used for location and object tracking.
+  - no sub-meter accuracy
+- Passive RFID
+  - limited in communication range (1-2m)
+  - can operate without battery
+  - unsuitable for indoor location due to limited range.
+  - can be  used for proximity based services using brute force approaches
+
+### UWB
+
+- ultra short-pulses period of <1 (ns) are transmitted over a large  bandwidth (>500MHz) at 3.1 to 10GHz, very low duty cycle in reduce power consumption.
+- a particularly attractive technology for indoor localization
+  - it is immune to interference from other signals, 
+  - can penetrate a variety of materials
+  - very short duration makes less sensitive to multipath.
+  - able to achieve accuracy upto 10cm.
+- limited use of UWB in consumer products and portable devices
+
+### Visible Light Communication
+
+- use 400THz to  800 THz visually light modulated and emitted by LED to communicate high speed data.
+- indoor location application like iBeacon. 
+- AoA is considered for most accurate.
+- Wide scale proliferation(even more than Wi-Fi)
+- Require LoS
+
+### Acoustic Signal
+
+- ubiquitous **microphone sensors** in **smart-phones** to capture acoustic signals emitted by sound sources/RNs and estimate the user location with respect to the RNs.
+- achieve high localization accuracy
+- only audible band acoustic signals (<20KHz) can provide accurate estimations
+  - the transmission power should be low enough not to cause sound pollution
+  - low power signal detection is required at receiver.
+- need extra infrastructure(acoustic sources) and highly update rate (impact battery lift) makes it not popular.
 
 ## LOCALIZATION AND INTERNET OF THINGS
 
