@@ -77,6 +77,53 @@
 
 ## Fox Metrix
 
+- Fox:
+  - Future -> Opportunity -> X-Strategy(Exit) => CEO
+    - 衝
+    - Exit strategies: 掛掉、IPO、賣掉
+      - forward thinking, reverseward thinking
+      - 從　time dimension, $ dimension
+      - capture and capitalize optinunity
+  - Financial -> options -> X-Strategy => CFO  
+    - 拉　(CEO & CFO互相制衡)
+  -　Try to challenge #2 => find the weakness !
+  - Financial -> operation -> X-Examination (Cross) => COO
+    - Detial execution.
+  - Future -> options -> X-Examination(cross) => CTO
+  - Forward looking -> options -> X-Roads(Cross) => CMO
+    - indicator is a loopback signaling 
+- 狐狸群效應
+  - CSO
+    - F: Future outlooking
+    - O: operation alternatives
+    - X: eXtracting company values
+    - E: ensure market shares
+    - S: sustaining profitability
+  - Other Officers
+    - F: facilitating value chain
+    - O: Operational focus
+    - X: eXecuting Strategy
+    - E: Evaluating key results
+    - S: Supporting infrastructures
+- 狐狸群效應　邏輯思維衍生
+  - 創新型高管/創新公司創辦人
+    - F: facilitate value chain
+    - O: Operation focus
+    - X: excution strategies
+    - E: Evaluating key results
+    - S: Supporting Infrastructures
+  - 商業計劃書，項目／年度計畫
+    - F: ecosystem & money flow
+    - O: target market planning
+    - X: Business Model
+    - E: KPI Verfication & Reaction
+    - S: Financial Planning
+  
+  ![](https://imgur.com/l575cud.png)
+  ![](https://imgur.com/XFQq4f3.png)
+
+- IOT: focus on new infarstructure not legacy one.
+
 ## 中美貿易
 
 - 還沒結束，現在簽都是幌子
