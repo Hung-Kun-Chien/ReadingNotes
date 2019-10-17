@@ -124,6 +124,11 @@
 
 - IOT: focus on new infarstructure not legacy one.
 
+- 書：科技老鳥３０年陪你飛一程
+
+- 曹操詩集（創業心境）
+　![](https://i.imgur.com/O5ttkY6.jpg) 
+
 ## 中美貿易
 
 - 還沒結束，現在簽都是幌子
