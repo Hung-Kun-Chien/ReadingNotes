@@ -1,5 +1,7 @@
 # 創新型高管的內涵與邏輯思維
 
+###### tags`上課筆記`
+
 - Innovative executives' istincts & logical thinking
 
 - Speaker: Jerry Chang, 10/17/2019
