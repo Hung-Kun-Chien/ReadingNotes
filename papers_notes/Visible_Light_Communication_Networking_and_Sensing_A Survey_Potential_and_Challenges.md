@@ -212,7 +212,7 @@
     - $C_{pd}$: capacitance of the photodetector per unit area
     - $\eta$: FET channel noise factor
     - $g_m$: FET transconductance
-    - $I_2 = 0.562$, $I_3=0.0868$ : noise-bandwidth factors
+    - $I_2 = 0.562$, $I_3 = 0.0868$ : noise-bandwidth factors
   - Factors includes area of the photodetector,room temperature, ambient light
 
 ### Shadowing 
@@ -221,3 +221,161 @@
 - Frequency shadowing
 - Multiple spatial separated LEDs to mitigate the frequency shadowing
 - shadowing in indoor VLC networks is not studied in literature. 
+
+## Modulation Methods
+
+- No phase/amplitude modulation: data can not be encoded in phase or amplitude in light signal
+- IM/DD : 
+  - Intensity Modulation: information encoded in varying intensity(亮度)
+  - Direct Detection: direct detection at receiver
+- Requirements perceived(感知) light
+  - Dimming(調光): 
+    - human sensitivity to the dimming of the light.
+    - $ \text{Perceived light} ( \% ) = 100 \times \sqrt { \frac { \text { Measured light } ( \% ) } { 100 } }$
+    - 1% decreasing of measured light cause 10% decreasing of the perceived light
+    - communication should not be affected by the dimming.
+  - Flicker mitigation(避免閃爍)
+    - VLC should not result in human-perceivable ﬂuctuations
+    - changes light intensity must faster than human eye can perceive 
+    - IEEE 802.15.7 suggest > 200Hz
+    - most common flicker source: long 0s and long 1s
+    - Run Length Limited (RLL) codes to mitigate flicker.
+    - Common used RLL: 
+      - Manchester: 0->(10), 1-> (01)
+      - 4B6B: 4bits to 6bit which has balanced repetition.
+      - 8B10B: 8bit to 10bit
+        - reduce additional bits, but performs poorly in terms of DC balancing.
+
+### OOK
+
+- Bits 1 and 0 are transmitted by turning the LED on and off respectively
+- Most early work VLC using OOK
+- Major limitation of white LED(BLUE + yellow phosphor): 
+  - Bandwidth limitation to ~MHz due to slow time response of phosphor
+- Transmission speed evaluation
+  - first version 10Mbps -> 
+  - 40Mbps by using blue filter ->
+  - 100Mbps by tx blue filtering+rx analog Eqz ->
+  - 230Mbps using avalanche photodiode rx.
+  - 477Mbps using RGB LED, but only Red for modulation.
+- 802.15.7 proposed two approaches for OOK modulation
+  - Redeﬁne ON and OFF levels
+  - Compensation periods: on/off level remain the same,added compensation period.
+    - The duration is determined based on the desired level of dimming
+    - $\gamma = \left\{ \begin{array} { l l } { ( 2 - 2 D ) \times 100 } & {: D > 0.5 } \\ { 2 D \times 100 } & {: D \leq 0.5 } \end{array} \right.$
+
+### Pulse Modulation Methods
+
+- OOK limitation is the data rate.
+- Pulse Width Modulation (PWM): adjust dimming level to carry information by pulse width.
+  - Advantage: without change intensity level,not incur color shift
+  - limited data rate to 4.8kbps
+- PWM+DMT(Discrete multi-tone)
+  - data modulated in QAM->DMT, multiplied by a pulse width modulation
+  - the duty cycle of PWM is dependent on desired level of dimming
+  - used QAM on DMT subcarriers to achieve a link rate of 513 Mbps
+<img src="https://i.imgur.com/E0GmFKJ.png" style="width: 600px" align="center"/> 
+
+- Pulse Position Modulation (PPM):
+  - information modulated based on pulse position
+  - early adopted due to simplicity
+  <img src="https://i.imgur.com/wltB7zi.png" style="width: 600px" align="center"/>
+  - Variety:
+    - Overlapping PPM (OPPM): overlap of different symbols in time, better spectrum efficiency than OOK/PPM
+    - Multipulse PPM (MPPM): multiple pulses to be transmitted during the symbol duration, better efficiency than OPPM
+    - Overlapping MPPM: furthermore improvemnet without expending bandwidth
+    - Differential PPM (DPPM)
+    - Expurgated PPM
+    - Multi-level EPPM
+    - Variable PPM (VPPM): hybrid PPM and PWM, proposed in 802.15.7
+     
+### OFDM 
+
+- Single carrier modulation suffers high ISI.
+- OFDM simplify the equalization design.
+- VLC-OFDM need to modify to fit IM/DD system.
+  - Real value system: no complex value in time domain by Hermitian symmetry constraint
+  - Unipolar signals (no negative value):
+    - Asymmetrically-Clipped Optical OFDM (ACO-OFDM)
+      - only odd subcarriers are modulated leads symmetric in time domain
+    - DC-biased Optical OFDM (DCO-OFDM)
+      - positive direct current is added to make the signal unipolar
+      - LED clipping more significant
+  - Biggest challenge: nonlinear model current to intensity
+    - OFDM PAPR effect
+    - let LED operates at a small range to make drive current and optical power quasi-linear.
+  - OFDM for VLC holds great potential with achievable link rates in the scale of multiple **gbps**
+
+### Color Shift Keying (CSK)
+
+- TriLED(TLED): Combined RGB LED
+- CSK: modulated in intensity of the three colors in the TLED source
+  - relays on color space chromaticity diagram
+  
+- Approach to CSK
+  - Determine RGB constellation triangle
+  <img src="https://i.imgur.com/Mx9eOjH.png" style="width: 600px" align="center"/> 
+  - Mapping data bits to chromaticity values
+  <img src="https://i.imgur.com/doNvHLp.png" style="width: 600px" align="center"/> 
+  - Determine the intensities of RGB LEDs
+  $\begin{aligned} x _ { s } =  P _ { i } x _ { i } + P _ { j } x _ { j } + P _ { k } x _ { k } \\ y _ { s } = P _ { i } y _ { i } + P _ { j } y _ { j } + P _ { k } y _ { k } \\ P _ { i } + P _ { j } + P _ { K } = 1 \end{aligned}$ 
+- Advantage: flicking is not problem in CSK
+- Generalization on constellation mapping: 
+  - Billards equivalent disk packing algorithm
+  - design techniques are designed to meet the color balance requirement
+- Wavelength division multiplexing(WDM) in TLED: 
+  - modulate different stream from each color LED
+
+### IEEE 802.15.7 Physical Layer
+
+- PHY I: low speed OOK/VPPM
+<img src="https://i.imgur.com/MKZL8C2.png" style="width: 600px" align="center"/> 
+
+- PHY II: high speed OOK/VPPM
+<img src="https://i.imgur.com/npM4rf4.png" style="width: 600px" align="center"/> 
+
+- PHY III: 
+<img src="https://i.imgur.com/xszuO8b.png" style="width: 600px" align="center"/> 
+
+### Multiple Input Multiple Output (MIMO)
+
+- Luminaries typically contain multiple LEDs: can enable visible light MIMO communication
+- MIMO system are difficult to realize compared to RF comm.
+  - paths are similar, less diverse
+
+#### MIMO Receiver
+
+- Non-imaging receiver: 
+  - independent photodiodes
+  - high gain, low FOV, need careful alignment of the LOS
+- Imaging receiver:
+  - projection lens and large matrix of photodiodes
+  - projection lens enlarge FOV
+  - limited gain. advanced image process is required to create an efficiency MIMO channel.
+  - ideal MIMO receiver: hybrid imaging and non-imaging sensors.
+    - high gain for LOS using narrow FOV 
+    - robustness by leveraging NLOS path.
+  - Spherically-shaped receiver: 
+    - a large number of photodiodes.
+    - each has a narrow FOV and points in different direction in the room
+    - incurs cost for additional hardware
+  - A token-based pixel selection method: the pixels of interest are selectively scanned to speedup sampling rate.
+
+#### VLC MIMO Techniques
+
+- Repetition Coding (RC)
+  - less restrictive but limited throughput
+- Spatial Multiplexing (SMP): multiple parallel SISO streams
+  - optical wireless MIMO communication with subcarrier multiplexing where zero forcing was utilized
+  - **Optical beat interference** caused by multiple transmitters transmitting simultaneously
+- Spatial Modulation (SM)
+  - information modulated by activation of LEDs
+  - receiver estimate which LEDs are activated to decode
+  - power imbalance between the transmitter LEDs can improve the performance of spatial modulation especially in high correlated channel.
+- imaging receiver provide higher in SPM and SM compared to non-imaging receiver.
+
+#### Optical Beamforming
+
+- multiple LEDs can be focused towards the receiver to create optical beamforming
+- single LED can be focused in a speciﬁc target direction using Spatial Light Modulator (SLM)
+- SNR improvements
