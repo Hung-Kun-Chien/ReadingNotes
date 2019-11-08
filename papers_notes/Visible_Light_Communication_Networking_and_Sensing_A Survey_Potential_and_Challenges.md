@@ -339,6 +339,7 @@
 
 ### Multiple Input Multiple Output (MIMO)
 
+
 - Luminaries typically contain multiple LEDs: can enable visible light MIMO communication
 - MIMO system are difficult to realize compared to RF comm.
   - paths are similar, less diverse
@@ -379,3 +380,59 @@
 - multiple LEDs can be focused towards the receiver to create optical beamforming
 - single LED can be focused in a speciﬁc target direction using Spatial Light Modulator (SLM)
 - SNR improvements
+
+## Link Layer
+
+### Medium Access Control(MAC)
+
+- Topology
+  - P2P : suitable for highspeed NFC(near field communication)
+  - Star: many bidirectional links
+  - Broadcast: only received from master LED. Simple control.
+   
+#### CSMA : Carrier sense multiple access
+
+- 802.15.7 defines two CSMA protocol
+- un-slotted random access with CSMA
+  - random backoff
+  - carrier sense before transmission
+  - if channel busy, random backoff and wait
+- Beacon enabled slotted CSMA
+  - using beacon to slot the periods.
+  - Contention access period (CAP): CCA senses idle and transmission
+  - contention-free period (CFP): contains multiple GTS
+    - Guaranteed Time Slots (GTS): ensure medium access to devices with delay or bandwidth constrained applications
+- Key issue of Hidden-node:  to avoiding collisions especially due to hidden terminals is a challenging problem. 
+<img src="https://i.imgur.com/c8fFW62.png" style="width: 600px" align="center"/>
+
+- Bidirectional communication: LED off symbol can receive data.
+
+#### OFDMA
+
+- Multiple user access by assignment to different resource block of an OFDM Symbol.
+- Main challenge: power efficiency and decoding complexity.
+- Furthermore to consider power-efficient and interference-awareness resource allocation scheme.
+- Joint transmission (JT):  due to intensity modulation, it is possible to achieve much better coordination multiple point(CoMP) to RF system
+
+#### CDMA
+
+- OOC: optical orthogonal code for transmissions of multi-user in the same access channel
+- limitation: long OOC to ensure optimal
+- Code Cycle Modulation: using cyclic shift of the code to modulate M-ary information, increasing the capacity in $log_2(L)$
+  - Not suitable for providing dimming support
+    - achieving a different dimming level => a new set of OOC codes are required to be calculated
+    - Two approach to handle this issue: BIBD(Balanced Incomplete Block Designs) and Multi-level MEPPM signal.
+  - Not suitable for large user:
+    - difficult to generate code.
+  - Multiple reflection path cause isi degradation more than increasing fo user.
+  - Combine CSK with TLED with OCDMA to multi-user VLC.
+  - Hybrid CDMA and OFDM scheme that can achieve the advantages of both.
+
+#### Multi-User MIMO 
+
+- Early Work: multiple transmitter LEDs coordinated joint transmit to multiple user by zero-forcing precoding.
+  - Block-digitalization algorithm.
+    - reduce rx side complexity and power consumption.
+    - high performance uncertainty, only for RX path less than tx path.
+  - Tomlinson-Harashima Precoding: achieve better performance.
+
