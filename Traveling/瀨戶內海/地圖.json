@@ -1,0 +1,257 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    133.9274612,
+                    34.305991,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "栗林公園",
+                "styleUrl": "#icon-1899-0288D1-nodesc",
+                "styleHash": "-258dc051",
+                "styleMapHash": {
+                    "normal": "#icon-1899-0288D1-nodesc-normal",
+                    "highlight": "#icon-1899-0288D1-nodesc-highlight"
+                },
+                "icon": "http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    133.93617,
+                    34.6673339,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "後樂園",
+                "styleUrl": "#icon-1899-0288D1-nodesc",
+                "styleHash": "-258dc051",
+                "styleMapHash": {
+                    "normal": "#icon-1899-0288D1-nodesc-normal",
+                    "highlight": "#icon-1899-0288D1-nodesc-highlight"
+                },
+                "icon": "http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    132.7864296,
+                    33.8520076,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "道後溫泉本館",
+                "styleUrl": "#icon-1899-0288D1-nodesc",
+                "styleHash": "-258dc051",
+                "styleMapHash": {
+                    "normal": "#icon-1899-0288D1-nodesc-normal",
+                    "highlight": "#icon-1899-0288D1-nodesc-highlight"
+                },
+                "icon": "http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    133.7716237,
+                    34.5955837,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "倉敷館旅遊信息辦公室",
+                "styleUrl": "#icon-1899-0288D1-nodesc",
+                "styleHash": "-258dc051",
+                "styleMapHash": {
+                    "normal": "#icon-1899-0288D1-nodesc-normal",
+                    "highlight": "#icon-1899-0288D1-nodesc-highlight"
+                },
+                "icon": "http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    132.685456,
+                    35.402035,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "出雲大社",
+                "styleUrl": "#icon-1899-0288D1-nodesc",
+                "styleHash": "-258dc051",
+                "styleMapHash": {
+                    "normal": "#icon-1899-0288D1-nodesc-normal",
+                    "highlight": "#icon-1899-0288D1-nodesc-highlight"
+                },
+                "icon": "http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    134.6419817,
+                    34.23617,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "渦之道",
+                "styleUrl": "#icon-1899-0288D1-nodesc",
+                "styleHash": "-258dc051",
+                "styleMapHash": {
+                    "normal": "#icon-1899-0288D1-nodesc-normal",
+                    "highlight": "#icon-1899-0288D1-nodesc-highlight"
+                },
+                "icon": "http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    134.1885636,
+                    34.4770925,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "天使之路",
+                "styleUrl": "#icon-1899-0288D1-nodesc",
+                "styleHash": "-258dc051",
+                "styleMapHash": {
+                    "normal": "#icon-1899-0288D1-nodesc-normal",
+                    "highlight": "#icon-1899-0288D1-nodesc-highlight"
+                },
+                "icon": "http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    134.3161649,
+                    34.4617496,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "海灣渡假村飯店 小豆島",
+                "styleUrl": "#icon-1899-0288D1-nodesc",
+                "styleHash": "-258dc051",
+                "styleMapHash": {
+                    "normal": "#icon-1899-0288D1-nodesc-normal",
+                    "highlight": "#icon-1899-0288D1-nodesc-highlight"
+                },
+                "icon": "http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    134.2741859,
+                    34.4723666,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "小豆島橄欖公園",
+                "styleUrl": "#icon-1899-0288D1-nodesc",
+                "styleHash": "-258dc051",
+                "styleMapHash": {
+                    "normal": "#icon-1899-0288D1-nodesc-normal",
+                    "highlight": "#icon-1899-0288D1-nodesc-highlight"
+                },
+                "icon": "http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    134.1889866,
+                    34.4779098,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "恋人の聖地 約束の丘展望台",
+                "styleUrl": "#icon-1899-0288D1-nodesc",
+                "styleHash": "-258dc051",
+                "styleMapHash": {
+                    "normal": "#icon-1899-0288D1-nodesc-normal",
+                    "highlight": "#icon-1899-0288D1-nodesc-highlight"
+                },
+                "icon": "http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    134.1862772,
+                    34.4795106,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "小豆島拉麵HISHIO - 天使路店",
+                "styleUrl": "#icon-1899-0288D1-nodesc",
+                "styleHash": "-258dc051",
+                "styleMapHash": {
+                    "normal": "#icon-1899-0288D1-nodesc-normal",
+                    "highlight": "#icon-1899-0288D1-nodesc-highlight"
+                },
+                "icon": "http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    134.3006589,
+                    34.5156402,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "寒霞溪纜車",
+                "styleUrl": "#icon-1899-0288D1-nodesc",
+                "styleHash": "-258dc051",
+                "styleMapHash": {
+                    "normal": "#icon-1899-0288D1-nodesc-normal",
+                    "highlight": "#icon-1899-0288D1-nodesc-highlight"
+                },
+                "icon": "http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png"
+            }
+        }
+    ]
+}
