@@ -9,7 +9,7 @@
   - move from personalized communication toward the full realization of the Internet of Things (IoT) paradigm
     - connecting the computing resources, vehicles, devices, wearables, sensors, and even robotic agents
 
-    <img src="figures/evaluation_of_cellular_network.png" style="width: 600px" align="center"/>
+    <img src="../figures/evaluation_of_cellular_network.png" style="width: 600px" align="center"/>
 
 - 5G a significant step toward a low-latency tactile access network
   - New frequency bands, mmWave
