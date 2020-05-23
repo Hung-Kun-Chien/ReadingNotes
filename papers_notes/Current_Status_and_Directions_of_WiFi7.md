@@ -1,5 +1,7 @@
 # Current Status and Directions of IEEE 802.11be, the Future Wi-Fi 7
 
+DOI 10.1109/ACCESS.2020.2993448, IEEE Access
+
 - For 8K video, Virtual Reality, Augmented Reality, Gaming, Remote Ofﬁce, and Cloud Computing
 - Extreme high throughput (ETH)
 - Throughput at MAC more than **40 Gbps** in ≤ 7 GHz channels
@@ -478,10 +480,123 @@
 
 ##### Implementation issues
 
-...
+- **Memory-hungry technique** : receiver saves log-likelihood ratios (LLRs) for received bits
+- HARQ operations shall be done very quickly
+  - LDPC is iteration-based solution, new info would shorten the iteration process.
+  - codeword-based HARQ, MAC processing shall be accelerated.
+- Performance of HARQ in Wi-Fi deployments is still an open issue
+  - HARQ benefit in extreme low SNR.
+  - the performance of HARQ is not well studied in dense deployments
 
 #### Full-Duplex
 
+- In-Band FD allows simultaneous UL and DL on the same spectrum
+  - maximize spectrum efficiency, shorten latency.
+  - collision reduction: DL signal prevents potential hidden nodes from transmitting during UL
+  - relax issues for relay-based networks, multi-relay support FD can transmit simultaneously.
+  - "Listen while talk": new version of channel access schemes. 
+- Hard implement in Wi-Fi(Wireless): rapid channel variations and MIMO
+- Successive interference cancellation (SIC): 
+  - mitigate internal reﬂections: 15-20dB lower than TX, non-linear components ~ 30-40dB, multipath ~ 50-60dB 
+  - Analog SIC: cancel strongest path
+  - Digital SIC:interference below noise floor.
+  - Operate correctly only if the STA knows the ﬁgure of its **internal reﬂections** and **non-linearity**.
+    - need to enable calibration procedure.
+- Currently, none of the FD solutions received sufﬁcient support within TGbe because of unclear gains in real deployments.
+
 #### Non-orthogonal Multiple Access
 
+- NOMA to increase peak throughput and improve efﬁciency
+- AP perform NOMA transmissions with the superposition coding
+  - the bigger is the power, the more reliable is the component reception
+  - two-STA case: the great-power component to a far STA with worse channel conditions, the other component to a near STA.
+    - Far STA: composite signal as noise
+    - Near STA: perform SIC
+- Semi-orthogonal Multiple Access (SOMA): artiﬁcially designed gray-mapped superposed constellation
+  - low-power signal component more resilient to noise
+  - SIC becomes unnecessary, relax complexity.
+- Performance gain: 
+  - in 3GPP 20 − 30% gain of the feature is already proven in both Link and System Level
+  - experimental study of NOMA/SOMA Wi-Fi systems up to 40% gain of the geometric average throughput for two STAs.
+- Backward-compatible: the far STA can be legacy !!
+- NOMA is complementary to MU-MIMO
+  - MU-MIMO: STA in similar attenuation but orthogonal MIMO
+  - NOMA: better with the STAs that have **dissimilar attenuation** and correlated channels
+- There are plenty of theoretical works dedicated to MU-MIMO and NOMA cooperation.
+
 ### MULTI-AP COOPERATION
+
+#### Basic idea
+
+- a paradigm shift from interference mitigation to cooperation between the neighboring APs.
+- state-of-the-art enterprise Wi-Fi networks enable seamless roaming between Wi-Fi networks and simplify network conﬁguration
+- TGbe discuss to allow multi-AP system, which can have a distributed or centralized coordination
+- Two type multi-AP system: Coordinated and Joint
+  - Coordinated: systems send/receive each portion of data by a single AP
+  - Joint: systems send/receive data by multiple APs
+- Coordinated spatial reuse(CSR):  an evolution of spatial reuse (SR) system introduced in 802.11ax
+  - APs mitigate interference by coop-eratively controlling TX power
+  <img src="figures/11ax_SR_CSR.png" style="width: 600px" align="center"/> 
+- Coordinated OFDMA (Co-OFDMA)
+  - allows the APs to coordinate their schedules in time and frequencies
+  - Nearby APs can assign the same RUs for some STAs if interfere.
+- Null Steering
+  - Coordinated beamforming CBF
+  - AP perform beams to their STA, target to null its interference to neighboring STAs.
+  - Avoid mutual interference nearby network.
+  - challenge: acquire CSI from the non-served STAs associated to other APs.
+- Joint Transmission and Reception
+  - multiple APs to serve the same STA by creating a dynamic distributed MU-MIMO system
+  - Highest profit in joint transmission and reception of all multi-AP.
+  - Too complicated and has severe requests: high speed backhaul, accurate synchronization.
+- Joint transmission and reception methods require joint signal processing at the APs. 
+ 
+<img src="figures/multi-ap.png" style="width: 600px" align="center"/>
+
+- Synchronization Requirements:
+  - CSR: frame-level
+  - Co-OFDMA: symbol-level timing sync
+  - CFB: tight timing and phase sync.
+  - JTX: additional the same data for transmission.
+  - JRX: exchange signal samples.
+  - CSR and Co-OFDMA the most likely to be supported in the TGbe
+
+#### Sounding
+
+- Multi-AP start with sounding procedure.
+
+<img src="figures/multi-ap-sounding.png" style="width: 600px" align="center"/>
+
+- major issue: BFR overhead for high-order MIMO.
+  - interleaving scheme.
+  - STA not ack for poor channel quality.
+
+- Slave AP selection: 
+  - master AP select AP tp serve which STA.
+  - wrong selection causes **anticipated gain**
+
+#### Collecting Acknowledgments
+
+- In JTX, APs to synchronize information about the delivery of each frame
+  - each AP may listen to all the BAs
+  - disseminate information about heard BAs to the rest of APs.
+- Simplified approach: one AP to collect Ack and share to the others.
+
+#### Virtual BSS
+
+- Seamless exchange of frames between a STA and a group of APs without negotiation overhead
+- Virtual BSS:  All the APs of the set share the association/authentication and can have the same BSS ID 
+- STA do not need to re-association if it change physical AP serving after associated to virtual BSS.
+
+#### Implementation Issues
+
+- Coexistence with other network.
+- Require tight synchronization. 
+- Multi-AP assumes that in an enterprise network.
+- Multi-AP operation requires advanced scheduling techniques
+  - Even in simple Co-OFDMA, the APs need to exchange information about channel resource demands.
+- sounding mechanism not been studied for UL
+- Centralized/Decentralized Multi-AP scheduling raises the fairness issue.
+- JTX/JRX open issues: 
+  - time/frequency/phase sync.
+  - midamble in long packet to reduce the negative effect.

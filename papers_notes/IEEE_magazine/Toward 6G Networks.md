@@ -118,4 +118,77 @@
 - 6G networks will exploit a unified interface for localization and communications to improve control operations: 
   - information to shape beamforming patterns, reduce interference, predict handovers, and innovative user services
 
-### InnovAtIve network ArchItectures 
+### Innovative Network Architectures
+
+- Increasing BW requires higher capacity of backhaul networks, wide range of different communication tech increase the heterogeneity of the network.
+
+- 6G Architecture
+
+<img src="../figures/6GArchitecturalInnovation.png" style="width: 600px" align="center"/>
+
+- Tight integration of multiple frequencies and communication technologies and cell-less architecture:
+  - support a number of heterogeneous radios in the devices
+  - multi-connectivity techniques extend cell boundary.
+  - **cell-less** network procedures guarantee **seamless mobility** without overhead due to handovers
+  - provide QoS guarantees
+  - The devices be able to **seamlessly transition** among heterogeneous links **without manual intervention or configuration**
+  - concurrently use different network, ex. sub 6G for control and TeraHertz for data.
+
+### 3D Network Architecture
+
+- 5G bi-dimensional space: network access points are deployed to offer connectivity to devices **on the ground**
+- 6G 3D coverage: 
+  - complementing terrestrial infrastructures with non-terrestrial platforms(drones, balloons, satellites)
+  - quickly deployed to guarantee seamless service continuity and reliability
+  - Challenge: 
+    - air-to-ground channel modeling, 
+    - topology and trajectory optimization, 
+    - resource management, and energy efficiency
+
+### Disaggregation and Virtualization of the Networking Equipment
+
+- Network toward disaggregation of once-monolithic networking equipment
+- 3GPP not directly specific how to introduce virtualization concept.
+  - 5G network currently not addressed the challenges related to the design of disaggregated architecture.
+    - the higher control latency.
+    - cyber attach for centralization, and to the security of virtualized network functions. 
+- 6G bring disaggregation to the extreme by virtualizing MAC and PHY in low-cost distributed platforms with just antenna and minimum processing.
+  - decrease the cost of networking equipment, making massively dense deployment economically feasible.
+
+### Advanced Access-Backhaul Integration
+
+- massive data rate requires increasing of 6G backhaul capacity.
+- dense deployment of TeraHertz and VLC need backhaul connectivity to their neighbors and the core network
+- Self-backhauling solutions : radios(TeraHertz) in the base stations provide both access and backhaul
+- Challenge: networks will need higher autonomous configuration capabilities.
+
+### Energy-Harvesting Strategies for Low Power Consumption Network Operations
+
+- necessary to design systems where both the circuitry and the communication stack are developed with energy awareness in mind
+- energy-harvesting circuits to allow devices to be self-powered
+
+## Integrating Intelligence In the Network
+
+- expect 6G deployments to be much denser(# of AP and users) and more heterogeneous (different tech and application characteristics), and have stricter performance requirements with respect to 5G.
+- In 6G network, intelligence play more prominent role in prediction and classification tasks.
+  - data-driven approaches can be seen as tools network vendors and operators can use to meet the 6G requirements
+
+### Learning Techniques for Data Selection and Feature Extraction
+
+- fundamental to discriminate the value of information to maximize the utility for the end users with (limited) network resources
+- machine learning (ML) strategies can evaluate the degree of correlation in observations, or extract features from input vectors and predict the a posteriori probability of a sequence given its entire history
+- **unsupervised** and **reinforcement learning** approaches do not need labeling and can be used to operate the network in a 
+**truly autonomous fashion**
+
+### Inter-User Inter-Operator Knowledge Sharing
+
+- learning-driven networks, operators and users can also share learned/processed representations of specific network deployments and/or use cases
+  - speed up the network configuration in new markets
+  - better adapt to new unexpected operational scenarios
+
+### User-Centric Network Architecture
+
+- ML-driven networks are still in their infancy(起步階段)
+- user-centric network architecture: 
+  - end terminals will be able to make autonomous network decisions based on the outcomes without communication overhead to and from centralized controllers
+  - Distributed methods can process ML algorithms in real time, yielding more responsive network management.
